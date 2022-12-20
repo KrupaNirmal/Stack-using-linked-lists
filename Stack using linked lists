@@ -1,26 +1,26 @@
-\\implementation of stack using linked lists\\
+implementation of stack using linked lists//
 
-#include <stdio.h> 
+#include <stdio.h> //standard input output header file//
 #include <stdlib.h> 
 
-void push(); 
-void pop(); 
-void display(); 
+void push(); //push function//
+void pop(); //pop function//
+void display(); //display function//
 
   
-struct node 
+struct node //structure//
 { 
-    int val; 
+    int val; //declaring the value//
     struct node*next; 
 }; 
 
   
 struct node*head; 
-void push() 
+void push() //push function//
 { 
     int val; 
     struct node*ptr=(struct node*)malloc(sizeof(struct node)); 
-    if(ptr==NULL) 
+    if(ptr==NULL) //if ptr is NUll then it can't push the elements//
     { 
         printf("Not able to push the elements"); 
     } 
@@ -29,7 +29,7 @@ void push()
         printf("enter the value\n"); 
         scanf("%d",&val); 
         if(head==NULL) 
-        { 
+        { //to push the elements//
             ptr-> val=val; 
             ptr->next=NULL; 
             head=ptr; 
@@ -40,16 +40,16 @@ void push()
             ptr-> next=head; 
             head=ptr; 
         } 
-        printf("item pushed\n"); 
+        printf("item pushed\n"); //item is pushed//
     } 
 } 
 
   
-void pop() 
+void pop() //pop function//
 { 
-    int item; 
+    int item; //declaring the integer//
     struct node*ptr; 
-    if(head=NULL) 
+    if(head=NULL) //if top is empty it can't remove element//
     { 
         printf("underflow\n"); 
     } 
@@ -59,17 +59,17 @@ void pop()
         ptr=head; 
         head=head->next; 
         free(ptr); 
-        printf("item popped %d\n",item); 
+        printf("item popped %d\n",item); //element removed//
     } 
 } 
   
 
-void display() 
+void display() //display function//
 { 
-    int i; 
+    int i; //declaring the integer//
     struct node*ptr; 
     ptr=head; 
-    if(ptr=NULL) 
+    if(ptr=NULL) //if top is empty then the stack is empty//
     { 
         printf("stack is empty\n"); 
     } 
@@ -80,21 +80,21 @@ void display()
         { 
             printf("%d\t",ptr->val); 
             printf("\n"); 
-            ptr=ptr->next; 
+            ptr=ptr->next; //all the elements of stack are shown//
         } 
     } 
 } 
 
   
-int main() 
+int main() //main function//
 { 
-    int choice; 
+    int choice; //declaring the choice ''
     while(1) 
     { 
-        printf("select the operator\n"); 
+        printf("select the operator\n"); //user has to chose the operator//
         printf("\n 1.Push\n 2.Pop\n 3.Display\n 4.Exit\n"); 
         scanf("%d",&choice); 
-        switch(choice) 
+        switch(choice) //switching to operator//
         { 
         case 1: 
             push(); 
@@ -105,7 +105,7 @@ int main()
         case 3: 
             display(); 
             break; 
-        default:printf("invalid choice\n"); 
+        default:printf("invalid choice\n"); //if all the cases are invalid//
         } 
     } 
 } 

@@ -1,4 +1,4 @@
-implementation of stack using linked lists//
+//implementation of stack using linked lists//
 
 #include <stdio.h> //standard input output header file//
 #include <stdlib.h> 
